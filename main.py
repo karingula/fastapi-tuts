@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
 from pydantic import BaseModel
 
 # fastapi instance
@@ -7,8 +7,11 @@ app = FastAPI()
 class Item(BaseModel):
     name: str
     price: float
+    # use None to make it just optional
     is_offer: bool = None
 
+async def common_parameters(item_id: int, q: str = None, limit: int = 100):
+    return {"q": q, "skip": item_id, "limit": limit}
 
 @app.get('/')
 def read_root():
@@ -17,8 +20,8 @@ def read_root():
 
 @app.get('/items/{item_id}')
 # give none for optional query parameter
-def read_item(item_id: int, q: str = None):
-    return {"item_id": item_id, "q": q}
+def read_item(commons: dict = Depends(common_parameters)):
+    return commons
 
 
 @app.put('/items/{item_id}')
