@@ -1,6 +1,7 @@
 
-# virtual env
+# virtual env & env files
 fastapi/
+.env
 
 # OS generated files
 .DS_Store
