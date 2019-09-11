@@ -16,6 +16,7 @@ class Item(BaseModel):
 async def common_parameters(request: Request, item_id: int, q: str = None, limit: int = 100):
     return {"q": q, "skip": item_id, "limit": limit}
 
+
 @app.get('/')
 def read_root():
     return {"Hello": "World"}
