@@ -1,6 +1,7 @@
 from fastapi import Depends, FastAPI
 from pydantic import BaseModel
 from starlette.requests import Request
+import uvicorn
 
 # fastapi instance
 app = FastAPI()
@@ -31,3 +32,7 @@ def read_item(commons: dict = Depends(common_parameters)):
 @app.put('/items/{item_id}')
 def update_item(item_id: int, item: Item):
     return {"item_name": item.price, "item_id": item_id}
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host='0.0.0.0', port=3500)
