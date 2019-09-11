@@ -1,8 +1,11 @@
 from fastapi import Depends, FastAPI
 from pydantic import BaseModel
+from starlette.requests import Request
+import requests
 
 # fastapi instance
 app = FastAPI()
+
 
 class Item(BaseModel):
     name: str
@@ -10,7 +13,8 @@ class Item(BaseModel):
     # use None to make it just optional
     is_offer: bool = None
 
-async def common_parameters(item_id: int, q: str = None, limit: int = 100):
+
+async def common_parameters(request: Request, item_id: int, q: str = None, limit: int = 100):
     return {"q": q, "skip": item_id, "limit": limit}
 
 @app.get('/')
