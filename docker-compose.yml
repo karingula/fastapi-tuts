@@ -1,0 +1,14 @@
+version: '3'
+services:
+  fastapi-tuts:
+    build:
+      context: .
+    image:  fastapi_tuts:v1
+    container_name: example_fastapi_tuts
+    env_file:
+      - .env
+    ports:
+      - 8000:8000
+      - 3500:3500
+    volumes:
+      - .:/fastapi-tuts
