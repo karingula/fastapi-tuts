@@ -1,0 +1,10 @@
+{
+	"name": "FastAPI-Tuts",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "fastapi-tuts",
+	"workspaceFolder": "/fastapi-tuts",
+	"extensions": [
+		"ms-python.python",
+		"VisualStudioExptTeam.vscodeintellicode"
+	]
+}
