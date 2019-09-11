@@ -1,7 +1,6 @@
 from fastapi import Depends, FastAPI
 from pydantic import BaseModel
 from starlette.requests import Request
-import requests
 
 # fastapi instance
 app = FastAPI()
