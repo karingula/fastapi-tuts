@@ -23,8 +23,5 @@ __pycache__/
 *.pyc
 
 # vscode project settings
-.vscode/*
 .vscode/tasks.json
 .vscode/extensions.json
-.vscode/launch.json
-.vscode/settings.json
